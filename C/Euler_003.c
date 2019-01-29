@@ -3,7 +3,7 @@
 #include <math.h>
 
 int isprime(int a) {
-    for (int i=2;i<sqrt(a);i++) {
+    for (int i=2;i<=sqrt(a);i++) {
         if (a%i==0) {
             return 0;
         }
