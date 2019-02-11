@@ -1,6 +1,14 @@
 #include <stdio.h>
 #include <stdlib.h>
 
+int max(int arr[5]) {
+    int out = 0;
+    for (int i=0; i<5; i++) {
+        if (arr[i] > out) {out = arr[i];}
+    }
+    return out;
+}
+
 int main() {
     FILE *input = fopen("Euler_011.txt", "r");
     int arr[20][20], in;
@@ -20,10 +28,8 @@ int main() {
                 if (j<17 && i<17) {diag *= arr[j+k][i+k];}
                 if (j>=3 && i<17) {ldiag *= arr[j-k][i+k];}
             }
-            if (hori > result) {result = hori;}
-            if (vert > result) {result = vert;}
-            if (diag > result) {result = diag;}
-            if (ldiag > result) {result = ldiag;}
+            int a[5] = {result, hori, vert, diag, ldiag};
+            result = max(a);
         }
     }
     printf("Final Result: %d\n", result);
